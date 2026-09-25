@@ -3,6 +3,7 @@ package com.carlosalbertoosf.personal_finance_api.controllers;
 import com.carlosalbertoosf.personal_finance_api.data.dto.request.TransactionRequestDTO;
 import com.carlosalbertoosf.personal_finance_api.data.dto.response.TransactionResponseDTO;
 import com.carlosalbertoosf.personal_finance_api.services.TransactionServices;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -12,6 +13,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/financial/transaction")
+@Tag(name="Transaction", description = "Provides endpoints for managing financial transactions, including income and expenses.")
 public class TransactionController {
 
     @Autowired

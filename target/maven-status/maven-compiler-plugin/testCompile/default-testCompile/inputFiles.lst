@@ -1,1 +1,4 @@
 /Users/carlos.albertof/Developer/repositories/personal-finance-api/src/test/java/com/carlosalbertoosf/personal_finance_api/PersonalFinanceAPIApplicationTests.java
+/Users/carlos.albertof/Developer/repositories/personal-finance-api/src/test/java/com/carlosalbertoosf/personal_finance_api/services/CategoryServicesTest.java
+/Users/carlos.albertof/Developer/repositories/personal-finance-api/src/test/java/com/carlosalbertoosf/personal_finance_api/unitetests/mapper/ObjectMapperTests.java
+/Users/carlos.albertof/Developer/repositories/personal-finance-api/src/test/java/com/carlosalbertoosf/personal_finance_api/unitetests/mapper/mocks/MockCategory.java

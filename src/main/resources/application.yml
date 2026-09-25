@@ -14,3 +14,7 @@ spring:
     properties:
       hibernate:
         format_sql: true
+  spring-doc:
+    paths-to-match: /financial/**/**
+    swagger-ui:
+      use-root-path: true

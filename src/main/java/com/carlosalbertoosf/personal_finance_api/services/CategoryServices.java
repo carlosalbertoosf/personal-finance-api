@@ -3,6 +3,7 @@ package com.carlosalbertoosf.personal_finance_api.services;
 import com.carlosalbertoosf.personal_finance_api.controllers.CategoryController;
 import com.carlosalbertoosf.personal_finance_api.data.dto.request.CategoryRequestDTO;
 import com.carlosalbertoosf.personal_finance_api.data.dto.response.CategoryResponseDTO;
+import com.carlosalbertoosf.personal_finance_api.exceptions.RequiredObjectIsNullException;
 import com.carlosalbertoosf.personal_finance_api.exceptions.ResourceNotFoundException;
 import com.carlosalbertoosf.personal_finance_api.model.Category;
 import com.carlosalbertoosf.personal_finance_api.repository.CategoryRepository;
@@ -37,6 +38,9 @@ public class CategoryServices {
     }
 
     public CategoryResponseDTO create(CategoryRequestDTO dto) {
+
+        if(dto == null) throw new RequiredObjectIsNullException();
+
         Category category = parseObject(dto, Category.class);
 
         Category categorySaved = categoryRepository.save(category);
@@ -47,6 +51,9 @@ public class CategoryServices {
     }
 
     public CategoryResponseDTO update(Long id, CategoryRequestDTO dto) {
+
+        if(dto == null) throw new RequiredObjectIsNullException();
+
         Category category = categoryRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("Category with id " + id + " not found"));
 
