@@ -1,5 +1,6 @@
 package com.carlosalbertoosf.personal_finance_api.controllers;
 
+import com.carlosalbertoosf.personal_finance_api.controllers.docs.TransactionControllerDocs;
 import com.carlosalbertoosf.personal_finance_api.data.dto.request.TransactionRequestDTO;
 import com.carlosalbertoosf.personal_finance_api.data.dto.response.TransactionResponseDTO;
 import com.carlosalbertoosf.personal_finance_api.services.TransactionServices;
@@ -14,7 +15,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/financial/transaction")
 @Tag(name="Transaction", description = "Provides endpoints for managing financial transactions, including income and expenses.")
-public class TransactionController {
+public class TransactionController implements TransactionControllerDocs {
 
     @Autowired
     private TransactionServices transactionServices;
@@ -25,6 +26,7 @@ public class TransactionController {
                     MediaType.APPLICATION_XML_VALUE,
                     MediaType.APPLICATION_YAML_VALUE }
     )
+    @Override
     public List<TransactionResponseDTO> findAll() {
         return transactionServices.findAll();
     }
@@ -35,6 +37,7 @@ public class TransactionController {
                     MediaType.APPLICATION_XML_VALUE,
                     MediaType.APPLICATION_YAML_VALUE }
     )
+    @Override
     public TransactionResponseDTO findById(@PathVariable("id") Long id) {
         return transactionServices.findById(id);
     }
@@ -49,6 +52,7 @@ public class TransactionController {
                     MediaType.APPLICATION_XML_VALUE,
                     MediaType.APPLICATION_YAML_VALUE }
     )
+    @Override
     public TransactionResponseDTO create(@RequestBody TransactionRequestDTO transaction) {
         return transactionServices.create(transaction);
     }
@@ -63,11 +67,13 @@ public class TransactionController {
                     MediaType.APPLICATION_XML_VALUE,
                     MediaType.APPLICATION_YAML_VALUE }
     )
+    @Override
     public TransactionResponseDTO update(@PathVariable("id") Long id, @RequestBody TransactionRequestDTO transaction) {
         return transactionServices.update(id, transaction);
     }
 
     @DeleteMapping(value = "/{id}")
+    @Override
     public ResponseEntity<Void> delete(@PathVariable("id") Long id) {
         transactionServices.delete(id);
         return ResponseEntity.noContent().build();
